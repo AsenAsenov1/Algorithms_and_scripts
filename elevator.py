@@ -44,8 +44,8 @@ class Elevator:
         low_values_sorted = sorted([x for x in floors_list if x < self.current_floor])
         high_values_sorted = sorted([x for x in floors_list if x > self.current_floor])
 
-        print(low_values_sorted)
-        print(high_values_sorted)
+        print(f"Floors before current floor: ", *[str(x) for x in low_values_sorted])
+        print("Floors after current floor: ",  *[str(x) for x in high_values_sorted])
 
         if self.floors_to_last_floor <= self.current_floor:
             # Going upwards
@@ -73,3 +73,42 @@ query = [2, 10, 3, 5, 8, 1, 15]
 
 elevator = Elevator()
 elevator.execute_query(query)
+
+
+"""
+Example output
+
+Floors before current floor:  1 2
+Floors after current floor:  5 8 10 15
+Calculated order: 2 1 5 8 10 15
+
+Current floor: 3
+Next Stop - Floor: 2
+Going down! Next floor: 2
+You have arrived on the target floor! (2)
+Next Stop - Floor: 1
+Going down! Next floor: 1
+You have arrived on the target floor! (1)
+Next Stop - Floor: 5
+Going up! Next floor: 2
+Going up! Next floor: 3
+Going up! Next floor: 4
+Going up! Next floor: 5
+You have arrived on the target floor! (5)
+Next Stop - Floor: 8
+Going up! Next floor: 6
+Going up! Next floor: 7
+Going up! Next floor: 8
+You have arrived on the target floor! (8)
+Next Stop - Floor: 10
+Going up! Next floor: 9
+Going up! Next floor: 10
+You have arrived on the target floor! (10)
+Next Stop - Floor: 15
+Going up! Next floor: 11
+Going up! Next floor: 12
+Going up! Next floor: 13
+Going up! Next floor: 14
+Going up! Next floor: 15
+You have arrived on the target floor! (15)
+"""
