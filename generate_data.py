@@ -69,7 +69,11 @@ for key, value in new_columns.items():
         element_count = value.count(current_element)
         current_row[current_element] = element_count
 
-    for k, v in current_row.items():
+    if isinstance(value[0], str):
+        print()
+        print(key)
+
+    for k, v in sorted(current_row.items(), key=lambda x: x[1]):
         if isinstance(k, int):
             continue
 
