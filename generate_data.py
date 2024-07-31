@@ -3,7 +3,7 @@ import random
 import sys
 
 ############################################################
-# Example: python3 ./generate_data.py <CSV_FILENAME.csv> 
+# Example: python3 ./generate_data.py <CSV_FILENAME.csv>
 # python3 ./generate_data.py csv_input_file.csv
 ############################################################
 
@@ -36,7 +36,6 @@ for column_name, row in columns.items():
             for i in range(NUMBER_OF_ROWS):
                 generated_number = random.randint(int(num_1), int(num_2))
                 new_row.append(generated_number)
-            # print(new_row)
             new_columns[column_name] = new_row
     # Generate strings
     else:
@@ -46,7 +45,6 @@ for column_name, row in columns.items():
         else:
             while len(row) < NUMBER_OF_ROWS:
                 row.append(random.choice(row))
-            # print(row)
             new_columns[column_name] = row
 
 with open(csv_file_output, mode='w', newline='') as file:
