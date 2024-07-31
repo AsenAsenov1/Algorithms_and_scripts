@@ -8,6 +8,7 @@ import sys
 ############################################################
 
 csv_file = sys.argv[1]
+# csv_file = "csv_input_file.csv"
 csv_file_output = 'output_file.csv'
 NUMBER_OF_ROWS = 500
 columns = {}
@@ -57,5 +58,19 @@ with open(csv_file_output, mode='w', newline='') as file:
     rows = zip(*new_columns.values())
     writer.writerows(rows)
 
-for k, v in new_columns.items():
-    print(k, v)
+for key, value in new_columns.items():
+    if key == "Date":
+        continue
+
+    current_row = {}
+    current_row_unique = [x for x in value if x not in current_row]
+
+    for current_element in current_row_unique:
+        element_count = value.count(current_element)
+        current_row[current_element] = element_count
+
+    for k, v in current_row.items():
+        if isinstance(k, int):
+            continue
+
+        print(f"{k}: {v}")
