@@ -41,8 +41,10 @@ for column_name, row in columns.items():
     # Generate strings
     else:
         row = [x for x in row if x]
-        if str(row[0].split("/")[0]).isdigit():
+        # Skip date column
+        if column_name == "Date":
             new_columns[column_name] = row
+
         else:
             while len(row) < NUMBER_OF_ROWS:
                 row.append(random.choice(row))
@@ -78,3 +80,5 @@ for key, value in new_columns.items():
             continue
 
         print(f"{k}: {v}")
+
+
